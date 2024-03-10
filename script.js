@@ -1,4 +1,5 @@
-
+function loadingAnimation(){
+    
 var tl= gsap.timeline()
 tl.from(".line h1",{
 
@@ -29,17 +30,45 @@ tl.to(".line h2",{
 })
 tl.to("#loader",{
     opacity:0,
-    duraton:0.3,
+    duraton:0.2,
     delay:4,
 })
+
 tl.from("#page1",{
-    delay:0.2,
-    y:1600,
-    opacity:0,
+    y: 1600,
+    delay:0.3,
+
     duration:0.5,
-    ease:Power4
+    ease: Power4,
 
 })
 tl.to("#loader",{
     display:"none",
+});
+tl.from("#navbar",{
+    opacity:0,
 })
+tl.from(".hero h1, .hero h2, .hero h3",{
+    y:120,
+    delay:0.2,
+    duration:0.4,
+    stagger:0.2, 
+})
+
+}
+
+
+function cursorAnimation(){
+    document.addEventListener("mousemove",function(dets){
+        gsap.to("#crsr",{
+            left:dets.x,
+            top:dets.y,
+        })
+    
+    })
+    Shery.makeMagnet("#navbar2 h4", {
+         
+      });
+}
+loadingAnimation()
+cursorAnimation()
